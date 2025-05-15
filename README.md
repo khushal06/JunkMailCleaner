@@ -22,4 +22,10 @@ A secure Python-based web application that connects to Gmail using App Passwords
 - Version Control: Git + GitHub (SSH)
 - Deployment : Render
 
+- ## Live Demo
+Access the live app here: [https://junk-mail-cleaner.onrender.com](https://junk-mail-cleaner.onrender.com)
+
+> Note: This free instance may take ~30 seconds to wake up if inactive.
+
+
 
