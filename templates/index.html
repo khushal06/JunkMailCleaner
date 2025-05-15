@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Junk Mail Cleaner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <h1>Junk Mail Cleaner</h1>
+
+  <div class="description">
+    <p>This tool securely connects to your Gmail using an App Password and deletes all emails from a specific sender (e.g., noreply@uber.com).</p>
+    <ul>
+      <li>You must have <strong>IMAP</strong> enabled and a <strong>Gmail App Password</strong>.</li>
+      <li>All matching emails will be <strong>permanently deleted</strong> from all folders, including “All Mail.”</li>
+      <li>Your credentials are used securely and never stored.</li>
+    </ul>
+  </div>
+
+  <form method="POST">
+    <label for="gmail">Your Gmail Address:</label>
+    <input type="email" name="gmail" required>
+
+    <label for="password">App Password:</label>
+    <input type="password" name="password" required>
+
+    <label for="sender">Sender Email to Delete:</label>
+    <input type="email" name="sender" required value="noreply@uber.com">
+
+    <input type="submit" value="Delete Emails">
+  </form>
+
+  {% if result %}
+  <div class="result {% if '✅' in result %}success{% else %}error{% endif %}">
+    <p>{{ result }}</p>
+    {% if '✅' in result %}
+      <p class="note">🗑️ Tip: Check your <strong>Gmail Trash</strong> to confirm emails were deleted. They will remain there for 30 days before permanent removal.</p>
+    {% endif %}
+  </div>
+    {% endif %}
+
+
+</body>
+</html>
